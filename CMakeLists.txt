@@ -8,7 +8,5 @@ include_directories(.)
 add_executable(Tic-tac-toe
         Tic_tac_toe.cpp
         Tic_tac_toe.h
-        control.cpp
-        control.h
         prompt.cpp
-        main.cpp)
+        main.cpp prompt.h)
