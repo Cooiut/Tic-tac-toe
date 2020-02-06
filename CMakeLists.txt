@@ -11,5 +11,4 @@ add_executable(Tic-tac-toe
         control.cpp
         control.h
         prompt.cpp
-        prompt.h
         main.cpp)
