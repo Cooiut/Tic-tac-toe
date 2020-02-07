@@ -32,14 +32,16 @@ public:
 	
 	int checkPosition(int, int);
 	
-	int checkState();
+	int checkState(int, int);
 	
 	friend std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game);
 	
 	std::string to_string();
 	
 	int getPlayer();
-	
+
+	int getGameState();
+
 	~Tic_tac_toe();
 	
 };
