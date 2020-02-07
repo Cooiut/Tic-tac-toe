@@ -105,6 +105,3 @@ int Tic_tac_toe::getPlayer()
 {
 	return currentPlayer;
 }
-
-
-

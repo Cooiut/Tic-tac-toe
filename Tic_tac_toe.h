@@ -18,7 +18,7 @@ private:
     int gameState{};
     
     // Represent the current player: 1 for player 1, 2 for player 2
-    int currentPlayer{};
+	int currentPlayer{ 1 };
 
 protected:
 
