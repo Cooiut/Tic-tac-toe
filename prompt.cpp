@@ -27,11 +27,11 @@ void prompt()
 	{
 		std::cout << "Please enter game board size [2-10]: ";
 		std::cin >> x;
-	} while (x < 2 | x > 10);
+	} while (x < 2 || x > 10);
 	
 	Tic_tac_toe game = Tic_tac_toe(x);
 	
-	while (game.checkState() == 0)
+	while (game.getGameState() == 0)
 	{
 		int xIn, yIn, move;
 		std::cout << game;
@@ -39,6 +39,7 @@ void prompt()
 		std::cout << "Please enter a position (x y): ";//打印当前玩家，要求玩家输入坐标
 		std::cin >> xIn >> yIn;
 		move = game.makeMove(xIn - 1, yIn - 1);
+		std::cout << game.getGameState()<< std::endl;
 		while (move == -1)
 		{
 			std::cout << "Position is not legal, please reenter: "; //坐标错误，重新输入坐标
@@ -46,7 +47,6 @@ void prompt()
 			move = game.makeMove(xIn - 1, yIn - 1);
 		}
 		
-		// TODO 2/6/2020
 	}
 	
 	std::cout << "Gave over.";

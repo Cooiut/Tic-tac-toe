@@ -32,7 +32,7 @@ public:
 	
 	int checkPosition(int, int);
 	
-	int checkState(int, int);
+	void checkState(int, int);
 	
 	friend std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game);
 	
