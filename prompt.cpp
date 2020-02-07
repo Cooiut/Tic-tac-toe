@@ -33,23 +33,21 @@ void prompt()
 	
 	while (game.getGameState() == 0)
 	{
-		int xIn, yIn, move;
+		int xIn = 0, yIn = 0, move = -1;
 		std::cout << game;
 		std::cout << "Current player is : Player " << game.getPlayer() << std::endl;
 		std::cout << "Please enter a position (x y): ";//打印当前玩家，要求玩家输入坐标
 		std::cin >> xIn >> yIn;
 		move = game.makeMove(xIn - 1, yIn - 1);
-		std::cout << game.getGameState() << std::endl;
+//		std::cout << game.getGameState() << std::endl;
 		while (move == -1)
 		{
 			std::cout << "Position is not legal, please reenter: "; //坐标错误，重新输入坐标
 			std::cin >> xIn >> yIn;
 			move = game.makeMove(xIn - 1, yIn - 1);
 		}
-		
 	}
 	
-	std::cout << "Gave over.";
-	
-	
+	std::cout << "Gave over. Winner is player " << game.getGameState() << std::endl;
+	std::cout << game;
 }

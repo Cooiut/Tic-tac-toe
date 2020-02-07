@@ -51,39 +51,103 @@ int Tic_tac_toe::checkPosition(int x, int y)
 
 void Tic_tac_toe::checkState(int x, int y)
 {
+	int i, j;
+	bool state;
 	
-	// 检查棋盘状态
-//	int i = 0;
-	for (int i = 0; i < length - 1; i++)
-		if (board[x][i] != board[x][i + 1] || board[i][y] != board[i + 1][y])
+	// Check row
+	state = true;
+	for (i = 0; i < length - 1; ++i)
+		if (board[x][i] != board[x][i + 1])
 		{
-			gameState = 0;
-			return;
+			state = false;
+			break;
 		}
-//	for (int i = 0; i < length-1; i++)
-//		if (board[i][y] != board[i + 1][y])
-//		{
-//			gameState = 0;
-//		}
-	if (x == y || x + y == length)
+	
+	if (state)
 	{
-		int j = length;
-		for (int i = 0; i < length - 1; i++)
+		gameState = board[x][i];
+		return;
+	}
+	
+	//Check col
+	state = true;
+	for (i = 0; i < length - 1; i++)
+		if (board[i][y] != board[i + 1][y])
 		{
-			if (board[i][i] != board[i + 1][i + 1] || board[i][j - 1] != board[i + 1][j - 2])
+			state = false;
+			break;
+		}
+	
+	if (state)
+	{
+		gameState = board[x][i];
+		return;
+	}
+	
+	// Check diag
+	state = true;
+	for (i = 1; i < length; ++i)
+	{
+		if (board[i - 1][i - 1] != board[i][i])
+		{
+			state = false;
+			break;
+		}
+	}
+	if (state)
+	{
+		gameState = board[i - 1][i - 1];
+		return;
+	}
+	
+	// Check back-diag
+	state = true;
+	for (i = 0; i < (length - 2); ++i)
+	{
+		if (board[i][length - 1 - i] != board[i + 1][length - 2 - i])
+		{
+			state = false;
+			break;
+		}
+	}
+	if (state)
+	{
+		gameState = board[i][length - 1 - i];
+		return;
+	}
+	
+	// Not yet stop
+	for (i = 0; i < length; ++i)
+	{
+		for (j = 0; j < length; ++j)
+		{
+			if (board[i][j] == 0)
 			{
 				gameState = 0;
 				return;
 			}
-			j--;
 		}
-//		for (int i = 0; i < length; i++)
+	}
+
+//	if (x == y || x + y == length)
+//	{
+//		j = length;
+//		for (i = 0; i < length - 1; i++)
+//		{
+//			if (board[i][i] != board[i + 1][i + 1])
+//			{
+//				gameState = 0;
+//				return;
+//			}
+//			j--;
+//		}
+//		for (i = 0; i < length; i++)
 //			if (board[i][i] != board[i + 1][i + 1])
 //			{
 //				gameState = 0;
 //			}
-	}
-	gameState = 1;
+//	}
+	gameState = -1;
 	
 }
 
