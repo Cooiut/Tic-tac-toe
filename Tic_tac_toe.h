@@ -34,7 +34,7 @@ public:
     
     int checkState();
     
-    friend std::ostream& operator<<(std::ostream&, const Tic_tac_toe&);
+    friend std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game);
     
     std::string to_string();
     

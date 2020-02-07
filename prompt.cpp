@@ -31,8 +31,12 @@ void prompt()
 	
 	Tic_tac_toe game = Tic_tac_toe(x);
 	
+	
 	while (game.checkState() == 0)
 	{
+		std::cout << game;
+		std::cout << "";
+		
 		// TODO 2/6/2020
 	}
 	
