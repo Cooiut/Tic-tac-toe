@@ -9,4 +9,7 @@ add_executable(Tic-tac-toe
         Tic_tac_toe.cpp
         Tic_tac_toe.h
         prompt.cpp
-        main.cpp prompt.h)
+        main.cpp
+        prompt.h
+        Ai.cpp
+        Ai.h)
