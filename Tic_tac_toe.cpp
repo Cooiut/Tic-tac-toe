@@ -17,7 +17,6 @@ Tic_tac_toe::Tic_tac_toe(int n)
 			board[i][j] = 0;
 		}
 	}
-
 }
 
 int Tic_tac_toe::makeMove(int x, int y)
@@ -45,18 +44,14 @@ int Tic_tac_toe::makeMove(int x, int y)
 
 int Tic_tac_toe::checkPosition(int x, int y)
 {
-//<<<<<<< Updated upstream
 	if ((-1 < x) && (x < length) && (-1 < y) && (y < length))
-//=======
-		if (0 < x < length & 0 < y < length)
-//>>>>>>> Stashed changes
-			return board[x][y];
+		return board[x][y];
 	return -1;
 }
 
 void Tic_tac_toe::checkState(int x, int y)
 {
-
+	
 	// 检查棋盘状态
 //	int i = 0;
 	for (int i = 0; i < length - 1; i++)
@@ -89,7 +84,7 @@ void Tic_tac_toe::checkState(int x, int y)
 //			}
 	}
 	gameState = 1;
-
+	
 }
 
 std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game)
@@ -112,16 +107,16 @@ std::string Tic_tac_toe::to_string()
 		res += std::to_string(k);
 		res += " ";
 	}
-
+	
 	res += "\n  ";
-
+	
 	for (int k = 0; k < length * 2 + 1; ++k)
 	{
 		res += "-";
 	}
-
+	
 	res += "\n";
-
+	
 	for (int i = 0; i < length; ++i)
 	{
 		res += std::to_string(i + 1);
@@ -134,14 +129,14 @@ std::string Tic_tac_toe::to_string()
 		res.pop_back();
 		res += "|\n";
 	}
-
+	
 	res += "  ";
-
+	
 	for (int k = 0; k < length * 2 + 1; ++k)
 	{
 		res += "-";
 	}
-
+	
 	return res;
 }
 

@@ -39,7 +39,7 @@ void prompt()
 		std::cout << "Please enter a position (x y): ";//打印当前玩家，要求玩家输入坐标
 		std::cin >> xIn >> yIn;
 		move = game.makeMove(xIn - 1, yIn - 1);
-		std::cout << game.getGameState()<< std::endl;
+		std::cout << game.getGameState() << std::endl;
 		while (move == -1)
 		{
 			std::cout << "Position is not legal, please reenter: "; //坐标错误，重新输入坐标
@@ -50,5 +50,6 @@ void prompt()
 	}
 	
 	std::cout << "Gave over.";
+	
 	
 }

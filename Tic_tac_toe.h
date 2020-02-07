@@ -39,9 +39,9 @@ public:
 	std::string to_string();
 	
 	int getPlayer();
-
+	
 	int getGameState();
-
+	
 	~Tic_tac_toe();
 	
 };
