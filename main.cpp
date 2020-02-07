@@ -1,6 +1,6 @@
 //
 // Created by Cooiut on 2/5/2020.
-// also by Jason.
+// Also by Jason.
 //
 #include "prompt.h"
 
