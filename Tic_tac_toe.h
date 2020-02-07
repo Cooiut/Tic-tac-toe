@@ -27,19 +27,21 @@ public:
     int length;
     
     Tic_tac_toe(int);
-    
-    int makeMove(int, int);
-    
-    int checkPosition(int, int);
-    
-    int checkState();
-    
-    friend std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game);
-    
-    std::string to_string();
-    
-    ~Tic_tac_toe();
-    
+	
+	int makeMove(int, int);
+	
+	int checkPosition(int, int);
+	
+	int checkState();
+	
+	friend std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game);
+	
+	std::string to_string();
+	
+	int getPlayer();
+	
+	~Tic_tac_toe();
+	
 };
 
 #endif //TIC_TAC_TOE__TIC_TAC_TOE_H_

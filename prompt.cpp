@@ -31,13 +31,24 @@ void prompt()
 	
 	Tic_tac_toe game = Tic_tac_toe(x);
 	
-	
 	while (game.checkState() == 0)
 	{
+		int xIn, yIn, move;
 		std::cout << game;
-		std::cout << "";
+		std::cout << "Current player is : Player " << game.getPlayer() << std::endl;
+		std::cout << "Please enter a position (x y): ";//打印当前玩家，要求玩家输入坐标
+		std::cin >> xIn >> yIn;
+		move = game.makeMove(xIn - 1, yIn - 1);
+		while (move == -1)
+		{
+			std::cout << "Position is not legal, please reenter: "; //坐标错误，重新输入坐标
+			std::cin >> xIn >> yIn;
+			move = game.makeMove(xIn - 1, yIn - 1);
+		}
 		
 		// TODO 2/6/2020
 	}
+	
+	std::cout << "Gave over.";
 	
 }
