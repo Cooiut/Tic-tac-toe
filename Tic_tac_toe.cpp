@@ -10,7 +10,6 @@ Tic_tac_toe::Tic_tac_toe(int n)
 	board = new int* [length];
 	for (int i = 0; i < length; ++i)
 		board[i] = new int[length];
-	
 	for (int i = 0; i < length; ++i)
 	{
 		for (int j = 0; j < length; ++j)
@@ -18,7 +17,7 @@ Tic_tac_toe::Tic_tac_toe(int n)
 			board[i][j] = 0;
 		}
 	}
-	
+
 }
 
 int Tic_tac_toe::makeMove(int x, int y)
@@ -27,6 +26,7 @@ int Tic_tac_toe::makeMove(int x, int y)
 	{
 		// 下棋
 		board[x][y] = currentPlayer;
+		checkState(x, y);
 		// 检查结果
 		// 更新当前玩家
 		switch (currentPlayer)
@@ -38,23 +38,58 @@ int Tic_tac_toe::makeMove(int x, int y)
 			currentPlayer = 1;
 			break;
 		}
-		return 0;
-		// TODO 2/6/2020
+		return 1;
 	}
-	return -1;
+	return 0;
 }
 
 int Tic_tac_toe::checkPosition(int x, int y)
 {
+//<<<<<<< Updated upstream
 	if ((-1 < x) && (x < length) && (-1 < y) && (y < length))
-		return board[x][y];
+//=======
+		if (0 < x < length & 0 < y < length)
+//>>>>>>> Stashed changes
+			return board[x][y];
 	return -1;
 }
 
-int Tic_tac_toe::checkState()
+void Tic_tac_toe::checkState(int x, int y)
 {
-	// TODO 2/6/2020
-	return 0;
+
+	// 检查棋盘状态
+//	int i = 0;
+	for (int i = 0; i < length - 1; i++)
+		if (board[x][i] != board[x][i + 1] || board[i][y] != board[i + 1][y])
+		{
+			gameState = 0;
+			return;
+		}
+//	for (int i = 0; i < length-1; i++)
+//		if (board[i][y] != board[i + 1][y])
+//		{
+//			gameState = 0;
+//		}
+	if (x == y || x + y == length)
+	{
+		int j = length;
+		for (int i = 0; i < length - 1; i++)
+		{
+			if (board[i][i] != board[i + 1][i + 1] || board[i][j - 1] != board[i + 1][j - 2])
+			{
+				gameState = 0;
+				return;
+			}
+			j--;
+		}
+//		for (int i = 0; i < length; i++)
+//			if (board[i][i] != board[i + 1][i + 1])
+//			{
+//				gameState = 0;
+//			}
+	}
+	gameState = 1;
+
 }
 
 std::ostream& operator<<(std::ostream& out, Tic_tac_toe& game)
@@ -77,16 +112,16 @@ std::string Tic_tac_toe::to_string()
 		res += std::to_string(k);
 		res += " ";
 	}
-	
+
 	res += "\n  ";
-	
+
 	for (int k = 0; k < length * 2 + 1; ++k)
 	{
 		res += "-";
 	}
-	
+
 	res += "\n";
-	
+
 	for (int i = 0; i < length; ++i)
 	{
 		res += std::to_string(i + 1);
@@ -99,18 +134,23 @@ std::string Tic_tac_toe::to_string()
 		res.pop_back();
 		res += "|\n";
 	}
-	
+
 	res += "  ";
-	
+
 	for (int k = 0; k < length * 2 + 1; ++k)
 	{
 		res += "-";
 	}
-	
+
 	return res;
 }
 
 int Tic_tac_toe::getPlayer()
 {
 	return currentPlayer;
+}
+
+int Tic_tac_toe::getGameState()
+{
+	return gameState;
 }
