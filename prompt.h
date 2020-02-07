@@ -1,15 +1,13 @@
 //
-// Created by Cooiut on 2/5/2020.
+// Created by 79005 on 2/6/2020.
 //
 
-#ifndef TIC_TAC_TOE__PROMPT_H_
-#define TIC_TAC_TOE__PROMPT_H_
+#ifndef TIC_TAC_TOE_PROMPT_H
+#define TIC_TAC_TOE_PROMPT_H
 
-#include "control.h"
+#include "Tic_tac_toe.h"
+#include <iostream>
 
-class prompt
-{
+void prompt();
 
-};
-
-#endif //TIC_TAC_TOE__PROMPT_H_
+#endif //TIC_TAC_TOE_PROMPT_H
