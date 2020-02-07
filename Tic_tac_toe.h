@@ -11,22 +11,22 @@
 class Tic_tac_toe
 {
 private:
-    // Actual board array
-    int** board;
-    
-    // Represent the game state: 0 for playing, 1 for player 1 win the game, 2 for player 2 win the game, -1 for draw
-    int gameState{};
-    
-    // Represent the current player: 1 for player 1, 2 for player 2
+	// Actual board array
+	int** board;
+	
+	// Represent the game state: 0 for playing, 1 for player 1 win the game, 2 for player 2 win the game, -1 for draw
+	int gameState{};
+	
+	// Represent the current player: 1 for player 1, 2 for player 2
 	int currentPlayer{ 1 };
 
 protected:
 
 
 public:
-    int length;
-    
-    Tic_tac_toe(int);
+	int length;
+	
+	Tic_tac_toe(int);
 	
 	int makeMove(int, int);
 	

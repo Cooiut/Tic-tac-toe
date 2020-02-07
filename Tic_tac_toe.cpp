@@ -10,6 +10,15 @@ Tic_tac_toe::Tic_tac_toe(int n)
 	board = new int* [length];
 	for (int i = 0; i < length; ++i)
 		board[i] = new int[length];
+	
+	for (int i = 0; i < length; ++i)
+	{
+		for (int j = 0; j < length; ++j)
+		{
+			board[i][j] = 0;
+		}
+	}
+	
 }
 
 int Tic_tac_toe::makeMove(int x, int y)
@@ -29,6 +38,7 @@ int Tic_tac_toe::makeMove(int x, int y)
 			currentPlayer = 1;
 			break;
 		}
+		return 0;
 		// TODO 2/6/2020
 	}
 	return -1;
@@ -36,7 +46,7 @@ int Tic_tac_toe::makeMove(int x, int y)
 
 int Tic_tac_toe::checkPosition(int x, int y)
 {
-	if (0 < x < length & 0 < y < length)
+	if (-1 < x < length & -1 < y < length)
 		return board[x][y];
 	return -1;
 }
