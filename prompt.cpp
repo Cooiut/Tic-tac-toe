@@ -27,7 +27,7 @@ void prompt()
 	{
 		std::cout << "Please enter game board size [2-10]: ";
 		std::cin >> x;
-	} while (x < 2 | x > 10);
+	} while ((x < 2) || (x > 10));
 	
 	Tic_tac_toe game = Tic_tac_toe(x);
 	
@@ -45,10 +45,8 @@ void prompt()
 			std::cin >> xIn >> yIn;
 			move = game.makeMove(xIn - 1, yIn - 1);
 		}
-		
-		// TODO 2/6/2020
 	}
-	
+	// TODO 2/6/2020
 	std::cout << "Gave over.";
 	
 }

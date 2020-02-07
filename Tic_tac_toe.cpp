@@ -46,7 +46,7 @@ int Tic_tac_toe::makeMove(int x, int y)
 
 int Tic_tac_toe::checkPosition(int x, int y)
 {
-	if (-1 < x < length & -1 < y < length)
+	if ((-1 < x) && (x < length) && (-1 < y) && (y < length))
 		return board[x][y];
 	return -1;
 }
@@ -54,7 +54,6 @@ int Tic_tac_toe::checkPosition(int x, int y)
 int Tic_tac_toe::checkState()
 {
 	// TODO 2/6/2020
-	// 检查棋盘状态
 	return 0;
 }
 
